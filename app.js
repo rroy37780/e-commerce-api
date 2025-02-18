@@ -9,7 +9,7 @@ const analyticsRoutes = require('./routes/analyticsRoutes.js');
 
 dotenv.config();
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 const dbURL = process.env.dbURL;
 app.listen(PORT, () => {
     console.log(`Server is running at PORT: ${PORT}`);
@@ -18,7 +18,7 @@ app.listen(PORT, () => {
 //database connection
 mongoose.connect(dbURL)
     .then(() => {
-        console.log('connected to db')
+        console.log('connected to db');
     })
     .catch((error) => {
         console.log(error);
